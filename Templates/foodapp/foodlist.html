@@ -1,0 +1,56 @@
+ {% include 'navbar.html' %}
+ 
+
+{%load static%}
+<link rel="stylesheet" href="{%static 'css/foodlist.css'%}">
+<body class="thisbody2">
+    <main class="thismain2">
+       
+        <div class="thispos"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+          {% for f in foodlist %}
+          <div class="card thiscardd">
+          <img class="thisimg2" src="{{f.FoodImage.url}}" alt="">
+          <h1>{{f.FoodName}}</h1>
+          <p class="price">{{f.FoodPrice}}</p>
+          {% if request.session.CustId is not None and request.session.AdminId is None %}
+          <p><a href="/addtocart/{{f.FoodId}}"><button>Add to Cart</button></a></p>
+          {% endif %}
+          {% if request.session.CustId is None and request.session.AdminId is not None %}
+          <p><a href="/getfood/{{f.FoodId}}"><button>Update</button></a></p>
+          <p><a href="/deletefood/{{f.FoodId}}"><button>Delete</button></a></p>
+          {% endif %}
+          </div>
+          {% endfor %}
+
+
+        </div>
+
+      </div>
+      <script>
+        var myIndex = 0;
+        sizzlecarousel();
+
+        function sizzlecarousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}
+          x[myIndex-1].style.display = "block";
+          setTimeout(sizzlecarousel, 2000);
+        }
+      </script>
+    </main>
+  </body>
+</html>

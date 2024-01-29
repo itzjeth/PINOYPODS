@@ -1,0 +1,23 @@
+{% extends 'all.html' %}
+{%load static%}
+{% block content %}
+
+
+
+      <form class="form-box" action="addcustomer" method="post">{% csrf_token %}
+        <div class="header-text">
+          Signup
+        </div>
+          <input placeholder="First Name" type="text" name="CustFName" > 
+          <input placeholder="Last Name" type="text" name="CustLName" > 
+          <input placeholder="Contact Number" type="tel" name="CustCont" required> 
+          <input placeholder="Your Email Address" type="email" name="CustEmail" required> 
+          <input placeholder="Your Password" type="password" name="CustPass" required> 
+          <input placeholder="Your Address" type="text" name="Address" required> 
+          
+          <button type="submit" class="butn" name="button" type="submit">Sign Up</button>
+    
+    <center><a type="button" href="login"> Already have account?</a></center>
+      
+      </form>
+{% endblock %}

@@ -1,0 +1,73 @@
+{%include 'navbar.html'%}
+{% load static %}
+<link rel="stylesheet" href="{%static 'css/cartlist.css'%}">
+
+      <main class="mainclass">
+             <form action="placeorder" method="post">
+{% csrf_token %}
+{% for c in cartlist %}
+      <div class="thistop">  
+      <div class="this2top" style="background-image:url(/media/{{c.FoodImage}});">
+        </div>
+        
+      <span class="span1"><span class="span2">Cart ID: <b class="b1">{{c.CartId}}</b></span><br /><b class="b2"><i>{{c.FoodName}}</i></b><br/><b>Quantity :</b>
+        
+      <input type="number" name="FoodQuant" class="qnt" value="{{c.FoodQuant}}" name="FoodQuant" id="foodqnt" min="1" max="20" /><input type="hidden" id="ctid" value="{{c.CartId}}" readonly /><br />
+
+
+
+    <tr>
+
+        <td><b>Price:  </b></td><td><td id="tlp"><input class="totalprice" style="" name="FoodPrice" value="{{c.FoodPrice}}" readonly></td><br />
+
+    </tr>
+      
+      </span>
+
+        <a href="/deletecart/{{c.CartId}}"><button type="button" name="button" class="button1">DELETE</button>
+        </a>
+      
+      </div>
+      {% endfor %}
+      <input onclick="confirm()" value="CONFIRM" id="cnf-btn" class="butn butn1" />
+	     <input type="submit" value="PLACE ORDER" id="sub-btn" class="butn butn2" />
+    </form>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script>
+  $(document).ready(function(){
+    $(".qnt").change(function(){
+      var s=this.nextSibling.value+"@"+this.value;
+      $.get("updateqnty/"+s);
+    });
+  });
+    function confirm()
+    {
+      document.getElementById("cnf-btn").style.display = "none";
+      document.getElementById("sub-btn").style.display = "block";
+    }
+</script>
+  </body>
+</html>

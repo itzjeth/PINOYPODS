@@ -1,0 +1,29 @@
+      .thisdiv9 {
+        display: flex; 
+        position: static; 
+        justify-content: center; 
+        align-items: center; 
+        padding: 35px 0; 
+        box-shadow:1px 1px 5px;
+        margin-bottom:0px;">
+        }
+        .thisspan1 {
+          color:white;
+          float:left;
+          margin-left:10px;
+        }
+        .thisisb {
+          letter-spacing: 3px;
+          color: lime;
+
+        }
+        .thisisb2 {
+          font-size:20px;
+
+        }
+        .thsmain {
+            margin-top:80px;
+        }
+        .thsspan {
+            font-size:14px;
+        }

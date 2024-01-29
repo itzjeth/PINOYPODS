@@ -1,0 +1,27 @@
+ {% include 'navbar.html' %}
+ 
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="updatefood.css">
+  </head>
+	{% load static %}
+      <main>
+        <center><div class="middle-admin-reg">
+          <center ><legend class="newlegend">Update Food<h5 class="thih5"style=""><b>ID : {{f.FoodId}}0</b></h5></legend></center>
+          <div class="form-container">
+            <form class="myform-container" enctype="multipart/form-data" action="/editfood/{{f.FoodId}}" method="post">{% csrf_token %}
+            <span class="entry-box">Food Name : <input type="text" name="FoodName" value="{{f.FoodName}}"></span>
+            <span class="entry-box">Food Category : <input type="text" name="FoodCat" value="{{f.FoodCat}}" required></span>
+            <span class="entry-box">Food Price : <input type="tel" name="FoodPrice" maxlength="6"  value="{{f.FoodPrice}}" required></span>
+            <span class="entry-box">Food image : <input type="file" class="valid" name="FoodImage" required/></span>
+            <center><br/><button type="reset"class="butn thbtnx" name="button">Cancel</button>
+            &nbsp;&nbsp;<button type="submit"class="butn tbhtnx" name="button">Update</button>
+              </center>
+            </form>
+          </div>
+        </div>
+    </center>
+    </main>
+  </body>
+</html>

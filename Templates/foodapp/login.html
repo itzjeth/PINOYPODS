@@ -1,0 +1,91 @@
+ {% include 'navbar.html' %}
+ {% load static %}
+ 
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+ <link rel="stylesheet" href="{% static 'css/logstyle.css'%}">
+</head>
+  <body>
+<div class="login-box">
+ 
+  <form class="login-form" action="dologin" method="post">
+  {% csrf_token %}
+  <div class="textbox">
+    <i class=""></i>
+    <input type="text" name="userId" placeholder="Username">
+  </div>
+
+  <div class="textbox">
+    <i class=""></i>
+    <input type="password" name="userpass" placeholder="Password">
+  </div>
+	<div style="opacity: 0;">
+	<input type="radio" name="type" value="User" checked="true">
+  <input type="radio" value="Admin" name="type">
+  </div>
+  <input type="submit" class="btn" style="" value="Log in">
+    <center><a type="button" href="addcustomer" class="bytton"> No account?</a></center>
+  </form>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ <style>
+  form {
+    transform: scale(1.3);
+  }
+  body {
+     height: 100vh;
+  background: radial-gradient(circle at top left, gray, black);
+
+  }
+  .login-box {
+    position: flex;
+    align-items: center;
+    box-shadow: 6px 8px 10px black;
+    border: 1px solid white;
+    border-radius: 20px;
+    background: white;
+    padding: 87px 81px;
+
+  } 
+  ::placeholder {
+    color: black;
+
+  }
+  input {
+    font-size: 2em;
+  }
+  .btn {
+    padding: 15px 0;
+   background: radial-gradient(circle at top left, gray, black);
+    color: white;
+  }
+  .btn:hover {
+   background: radial-gradient(circle at top right, gray, black);
+   color: white;
+  }
+  .bytton {
+    color: black;
+  }
+ </style>
+  </body>
+</html>
+

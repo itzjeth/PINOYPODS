@@ -1,0 +1,26 @@
+ {% include 'navbar.html' %}
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <link rel="stylesheet" href="{%static 'css/orderlist.css'%}">
+</head>
+    <main class="thsmain">
+      <form action="placeorder" method="post">
+      {% csrf_token %}
+{% for o in orderlist %}
+      <div class="thisdiv9">
+        <span class="thisspan1">
+          <span>Order ID: 
+            <b class="thisisb">{{o.OrderId}}</b></span><br /><b class="thisisb2"><i>{{o.OrderDate}}</i></b><br/>
+<br />
+<tr>
+<td><b>Bill:  </b></td><td>{{o.TotalBill}}</td><br />
+</tr>
+      </span>
+      </div>
+      {% endfor %}
+    </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+
+ {% extends 'all.html' %}
+{%load static%}
+{% block content %}
+
+      <main>
+        <center>
+
+              <div class="middle-admin-reg">
+              <legend>New Food</legend>
+
+        </center>
+
+        <div class="form-container">
+              <form class="" action="addfoods" enctype="multipart/form-data" method="post">{% csrf_token %}
+                  <span class="entry-box">Food Name : <input type="text" name="FoodName" placeholder="Eg: &quot;Dragon-Roll&quot;"></span>
+                   <span class="entry-box">Food Category : <input type="text" name="FoodCat" placeholder="Eg : &quot;Snacks&quot;"></span>
+                   <span class="entry-box">Food Price : <input type="tel" name="FoodPrice" maxlength="6"  placeholder="&quot;in Rs&quot;" required></span>
+                   <span class="entry-box last">Food image : <input type="file" class="valid" name="FoodImage" required/></span>
+        <center>
+
+              <br/><button type="reset"class="butn" name="button">Cancel</button>
+            &nbsp;&nbsp;<button type="submit"class="butn"  name="button">Add</button>
+
+        </center>
+            </form>
+          </div>
+        </div>
+      </main>
+  {% endblock %}

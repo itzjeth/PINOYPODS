@@ -1,0 +1,31 @@
+{% load static %}
+body {
+      background-image: url("%{static 'images/thisback1.png'}%");
+      font-family: Arial;
+      font-weight: 5em;
+
+    }
+
+    .btn{
+      font-size: 2em;
+      padding: 35px 30px;
+      background: transparent;
+      border: 2px solid black;
+      border-radius: 10px;
+      color: white;
+
+    }
+    .btn:hover {
+      background: #00ffff;
+    }
+
+    p, h3 {
+      color: white;
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-family: Arial, cursive;
+      transform: scale(2.1);
+      display: relative;
+      text-shadow: 4px 4px black;
+
+          }
